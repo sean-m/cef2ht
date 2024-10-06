@@ -1,0 +1,10 @@
+[package]
+name = "cef2ht"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cef2hashmap = "0.1.4"
+clap = { version = "4.5.19", features = ["derive"] }
+clap_derive = { version = "4.0.0-rc.1" }
+flate2 = {version="1.0.34", features=["rust_backend"]}

@@ -1,0 +1,3 @@
+CEF:0|Security|Firewall|1.0|1001|Blocked Connection|5|src=192.168.1.1 dst=10.0.0.1 spt=12345 dpt=80
+CEF:0|Security|Firewall|1.0|1002|Allowed Connection|3|src=192.168.1.2 dst=10.0.0.2 spt=12346 dpt=443
+CEF:0|Security|Firewall|1.0|1003|Blocked Connection|5|src=192.168.1.3 dst=10.0.0.3 spt=12347 dpt=22
