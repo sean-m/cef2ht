@@ -16,12 +16,16 @@ struct Args {
     preserve: bool,
 }
 
-
 fn parse_n_dump (line : std::io::Result<String>, preserve : bool) {
-    match line.unwrap().to_hashmap(preserve) {
-        Ok(o) => { println!("{:?}", o) }
-        Err(e) => { eprintln!("{:?}", e)}
-    };
+    match line {
+        Ok(l) => {    
+            match l.to_hashmap(preserve) {
+                Ok(o) => { println!("{:?}", o) }
+                Err(e) => { eprintln!("Error parsing cef to hashmap: {:?}", e)}
+            }
+        }
+        Err(e) => { eprintln!("Error readling line from stream: {:?}", e)}
+    }
 }
 
 fn main() {
@@ -29,7 +33,6 @@ fn main() {
     let use_gzip = args.gunzip;
     let preserve = args.preserve;
     
-
     if use_gzip {
         let gunzipped = GzDecoder::new(std::io::stdin());
         let reader = BufReader::new(gunzipped);
